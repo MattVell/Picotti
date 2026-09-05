@@ -2,28 +2,28 @@ import { Certificate, ShieldPlus } from '@phosphor-icons/react'
 
 export function DoctorCredentials() {
   return (
-    <section id="doutoras" className="py-24 bg-white border-t border-slate-200/80">
+    <section id="doutoras" className="py-16 sm:py-24 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#0284C7] block mb-2">
             RESPONSABILIDADE TÉCNICA & RIGOR
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] font-sans">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-sans">
             Direção Técnica Especializada
           </h2>
-          <p className="text-base text-slate-500 mt-2.5 font-normal">
+          <p className="text-sm sm:text-base text-slate-500 mt-2.5 font-normal">
             A garantia do laudo exato e do suporte diagnóstico direto a pacientes e cirurgiões-dentistas da região.
           </p>
         </div>
 
         {/* Doctor Profiles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           
           {/* Dra. Camila da Rocha Picotti */}
           <div className="double-bezel shadow-sm">
-            <div className="double-bezel-inner p-8 bg-[#FBFBFD] flex flex-col items-center text-center">
+            <div className="double-bezel-inner p-6 sm:p-8 bg-[#FBFBFD] flex flex-col items-center text-center">
               
               {/* Studio Portrait Placeholder Frame */}
               <div className="w-28 h-28 rounded-[6px] bg-gradient-to-tr from-slate-200 to-slate-100 border border-slate-300/80 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
@@ -56,7 +56,7 @@ export function DoctorCredentials() {
 
           {/* Dra. Beatriz da Rocha Picotti */}
           <div className="double-bezel shadow-sm">
-            <div className="double-bezel-inner p-8 bg-[#FBFBFD] flex flex-col items-center text-center">
+            <div className="double-bezel-inner p-6 sm:p-8 bg-[#FBFBFD] flex flex-col items-center text-center">
               
               {/* Studio Portrait Placeholder Frame */}
               <div className="w-28 h-28 rounded-[6px] bg-gradient-to-tr from-slate-200 to-slate-100 border border-slate-300/80 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">

@@ -13,7 +13,9 @@ export function Preloader({ onLoaded }: PreloaderProps) {
   const progressLineRef = useRef<HTMLDivElement>(null)
   
   const onLoadedRef = useRef(onLoaded)
-  onLoadedRef.current = onLoaded
+  useEffect(() => {
+    onLoadedRef.current = onLoaded
+  }, [onLoaded])
 
   const isFinishedRef = useRef(false)
 

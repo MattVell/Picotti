@@ -90,19 +90,19 @@ export function PatientGuide() {
     <section
       id="preparo"
       ref={sectionRef}
-      className="py-24 bg-white border-t border-slate-200/80 relative"
+      className="py-16 sm:py-24 bg-white border-t border-slate-200/80 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#0284C7] block mb-2">
             TRANQUILIDADE & CONFORTO
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] font-sans">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-sans">
             O Que Saber Antes da Sua Visita
           </h2>
-          <p className="text-base text-slate-500 mt-3 font-normal">
+          <p className="text-sm sm:text-base text-slate-500 mt-2 sm:mt-3 font-normal">
             Três orientações simples para que o seu atendimento seja rápido, agradável e sem qualquer surpresa.
           </p>
         </div>
@@ -119,7 +119,7 @@ export function PatientGuide() {
           </div>
 
           {/* 3 Step Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 relative z-10">
             {STEPS.map((step, idx) => {
               const Icon = step.icon
 

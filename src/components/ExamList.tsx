@@ -152,67 +152,123 @@ export function ExamList() {
           </p>
         </div>
 
-        {/* Editorial Interactive Two-Column Stage */}
+        {/* Editorial Interactive Stage: Accordion on Mobile, Two-Column on Desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Vertical Fine-Line Menu */}
+          {/* Left Column: Vertical Menu with In-Place Mobile Expansion */}
           <div className="lg:col-span-6 flex flex-col divide-y divide-slate-200 border-y border-slate-200">
             {EXAMS.map((exam) => {
               const isSelected = exam.id === activeId
 
               return (
-                <button
-                  key={exam.id}
-                  onClick={() => setActiveId(exam.id)}
-                  onMouseEnter={() => setActiveId(exam.id)}
-                  className={`w-full py-5 px-3 sm:px-4 flex items-center justify-between text-left transition-all duration-200 cursor-pointer group ${
-                    isSelected ? 'bg-white shadow-sm -mx-1 px-4 sm:px-5 rounded-[6px]' : 'hover:bg-slate-100/50'
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`text-xs font-mono transition-colors ${
-                        isSelected ? 'text-[#0284C7] font-semibold' : 'text-slate-400 group-hover:text-slate-600'
-                      }`}
-                    >
-                      {exam.number}
-                    </span>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`text-base sm:text-lg transition-colors font-sans ${
-                            isSelected ? 'font-bold text-[#0F172A]' : 'font-medium text-slate-700 group-hover:text-[#0F172A]'
-                          }`}
-                        >
-                          {exam.title}
-                        </span>
-                        {exam.isExclusiveGoioere && (
-                          <span className="hidden sm:inline-block px-2 py-0.5 rounded-[4px] bg-sky-100 text-sky-800 text-[10px] font-mono font-medium">
-                            GOIOERÊ
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
-                        {exam.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  <ArrowRight
-                    size={16}
-                    className={`transition-all duration-200 shrink-0 ${
-                      isSelected
-                        ? 'text-[#0284C7] translate-x-1 opacity-100'
-                        : 'text-slate-300 opacity-0 group-hover:opacity-100'
+                <div key={exam.id} className="flex flex-col">
+                  {/* Item Trigger Button */}
+                  <button
+                    onClick={() => setActiveId(exam.id)}
+                    onMouseEnter={() => setActiveId(exam.id)}
+                    className={`w-full py-4 sm:py-5 px-3 sm:px-4 flex items-center justify-between text-left transition-all duration-200 cursor-pointer group min-h-[56px] ${
+                      isSelected ? 'bg-white shadow-sm -mx-1 px-4 sm:px-5 rounded-[6px]' : 'hover:bg-slate-100/50'
                     }`}
-                  />
-                </button>
+                  >
+                    <div className="flex items-center gap-3.5 sm:gap-4">
+                      <span
+                        className={`text-xs font-mono transition-colors shrink-0 ${
+                          isSelected ? 'text-[#0284C7] font-bold' : 'text-slate-400 group-hover:text-slate-600'
+                        }`}
+                      >
+                        {exam.number}
+                      </span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`text-sm sm:text-lg transition-colors font-sans ${
+                              isSelected ? 'font-bold text-[#0F172A]' : 'font-medium text-slate-700 group-hover:text-[#0F172A]'
+                            }`}
+                          >
+                            {exam.title}
+                          </span>
+                          {exam.isExclusiveGoioere && (
+                            <span className="px-2 py-0.5 rounded-[4px] bg-sky-100 text-sky-800 text-[9px] sm:text-[10px] font-mono font-medium">
+                              GOIOERÊ
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                          {exam.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <ArrowRight
+                      size={16}
+                      className={`transition-all duration-200 shrink-0 ${
+                        isSelected
+                          ? 'text-[#0284C7] rotate-90 lg:rotate-0 lg:translate-x-1 opacity-100'
+                          : 'text-slate-300 opacity-60 lg:opacity-0 group-hover:opacity-100'
+                      }`}
+                    />
+                  </button>
+
+                  {/* Mobile-Only In-Place Expandable Details Drawer */}
+                  {isSelected && (
+                    <div className="lg:hidden px-3 pb-5 pt-2 bg-white rounded-b-[6px] border-b border-slate-200/80 -mx-1 transition-all">
+                      <div className="p-4 bg-[#F8FAFC] rounded-[8px] border border-slate-200/90 flex flex-col gap-3.5">
+                        
+                        {/* Header Badges */}
+                        <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
+                          <span className="px-2 py-0.5 rounded-[4px] bg-[#F0F9FF] border border-[#BAE6FD] text-[#0369A1] text-[10px] font-mono font-semibold">
+                            {exam.tag}
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-500">
+                            <Clock size={13} className="text-[#0284C7]" />
+                            <span>{exam.duration}</span>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                          {exam.description}
+                        </p>
+
+                        {/* Indications Checklist */}
+                        <div className="bg-white border border-slate-200/80 rounded-[6px] p-3">
+                          <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5 font-sans">
+                            <ShieldCheck size={14} className="text-[#0284C7]" weight="fill" />
+                            Quando é indicado:
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {exam.indications.map((ind, i) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                                <CheckCircle size={14} className="text-[#0284C7] shrink-0 mt-0.5" weight="fill" />
+                                <span>{ind}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Quick WhatsApp Action */}
+                        <a
+                          href={`https://wa.me/5544999499438?text=Olá!%20Gostaria%20de%20saber%20mais%20e%20agendar%20o%20exame%20de%20${encodeURIComponent(
+                            exam.title
+                          )}.`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full inline-flex items-center justify-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white py-2.5 px-4 rounded-[6px] text-xs font-semibold shadow-sm active:scale-[0.98] min-h-[44px]"
+                        >
+                          <WhatsappLogo size={16} weight="fill" />
+                          <span>Agendar este Exame no WhatsApp</span>
+                        </a>
+
+                      </div>
+                    </div>
+                  )}
+                </div>
               )
             })}
           </div>
 
-          {/* Right Column: Dynamic Editorial Preview Stage */}
-          <div className="lg:col-span-6 lg:sticky lg:top-28">
+          {/* Right Column: Dynamic Editorial Preview Stage (Desktop Only) */}
+          <div className="hidden lg:block lg:col-span-6 lg:sticky lg:top-28">
             <div className="double-bezel shadow-lg shadow-slate-900/5">
               <div className="double-bezel-inner p-6 sm:p-8 flex flex-col bg-white">
                 
@@ -262,7 +318,7 @@ export function ExamList() {
                     )}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-4 py-2 rounded-[6px] text-xs font-semibold transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-4 py-2 rounded-[6px] text-xs font-semibold transition-all shadow-sm active:scale-[0.98] cursor-pointer min-h-[40px]"
                   >
                     <WhatsappLogo size={16} weight="fill" />
                     <span>Agendar este Exame</span>

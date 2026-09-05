@@ -30,30 +30,30 @@ export function UnitSelector({ activeCity, onSelectCity }: UnitSelectorProps) {
           </p>
         </div>
 
-        {/* City Toggle Buttons (Rectangular solid, 6px radius) */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-slate-200/80 p-1 rounded-[6px] border border-slate-300/80 text-sm font-medium">
+        {/* City Toggle Buttons (Responsive grid on mobile, inline-flex on desktop) */}
+        <div className="flex justify-center mb-10 max-w-md mx-auto sm:max-w-none">
+          <div className="grid grid-cols-2 sm:inline-flex w-full sm:w-auto bg-slate-200/80 p-1 rounded-[6px] border border-slate-300/80 text-xs sm:text-sm font-medium gap-1">
             <button
               onClick={() => onSelectCity('goioere')}
-              className={`px-5 py-2.5 rounded-[4px] transition-all cursor-pointer flex items-center gap-2 ${
+              className={`px-3 sm:px-5 py-2.5 rounded-[4px] transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-h-[44px] ${
                 isGoioere
                   ? 'bg-white text-[#0F172A] shadow-sm font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <MapPin size={16} weight="fill" className={isGoioere ? 'text-[#0284C7]' : 'text-slate-400'} />
-              <span>Goioerê (Sede Polo)</span>
+              <span>Goioerê (Sede)</span>
             </button>
             <button
               onClick={() => onSelectCity('nova_aurora')}
-              className={`px-5 py-2.5 rounded-[4px] transition-all cursor-pointer flex items-center gap-2 ${
+              className={`px-3 sm:px-5 py-2.5 rounded-[4px] transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-h-[44px] ${
                 !isGoioere
                   ? 'bg-white text-[#0F172A] shadow-sm font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <MapPin size={16} weight="fill" className={!isGoioere ? 'text-[#0284C7]' : 'text-slate-400'} />
-              <span>Nova Aurora (Filial)</span>
+              <span>Nova Aurora</span>
             </button>
           </div>
         </div>
@@ -61,7 +61,7 @@ export function UnitSelector({ activeCity, onSelectCity }: UnitSelectorProps) {
         {/* Dynamic Unit Card Container */}
         <div className="max-w-4xl mx-auto">
           <div className="double-bezel shadow-xl shadow-slate-900/5">
-            <div className="double-bezel-inner p-8 sm:p-10 bg-white">
+            <div className="double-bezel-inner p-5 sm:p-10 bg-white">
               
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 
@@ -107,13 +107,13 @@ export function UnitSelector({ activeCity, onSelectCity }: UnitSelectorProps) {
                     </p>
                   </div>
 
-                  {/* Action Group */}
-                  <div className="flex flex-wrap items-center gap-3">
+                  {/* Action Group (Full-width responsive stack on mobile) */}
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <a
                       href={isGoioere ? goioereWhatsapp : novaAuroraWhatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-5 py-3 rounded-[6px] text-sm font-semibold transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-5 py-3 rounded-[6px] text-sm font-semibold transition-all shadow-sm active:scale-[0.98] cursor-pointer min-h-[44px]"
                     >
                       <WhatsappLogo size={18} weight="fill" />
                       <span>Falar com {isGoioere ? 'Goioerê' : 'Nova Aurora'}</span>
@@ -127,7 +127,7 @@ export function UnitSelector({ activeCity, onSelectCity }: UnitSelectorProps) {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 font-medium px-3 py-3 rounded-[6px] transition-colors"
+                      className="inline-flex items-center justify-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 font-medium px-3 py-3 rounded-[6px] transition-colors min-h-[44px]"
                     >
                       <span>Abrir no Google Maps</span>
                       <ArrowSquareOut size={14} />

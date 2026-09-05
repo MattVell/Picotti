@@ -125,9 +125,9 @@ export function Footer() {
         </div>
 
         {/* Dedicated Discreet Strip for Cirurgiões-Dentistas (Approved Decision) */}
-        <div className="py-6 border-b border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-2 text-xs text-slate-600">
-            <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+        <div className="py-6 border-b border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-slate-600">
+            <span className="w-2 h-2 rounded-full bg-[#0284C7] shrink-0" />
             <span>
               <strong>Área do Profissional Prescritor:</strong> Você é cirurgião-dentista ou clínica parceira?
             </span>
@@ -136,9 +136,9 @@ export function Footer() {
           <a
             href="/requisicao-picotti.pdf"
             download
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[4px] bg-white border border-slate-300 hover:border-[#0284C7] text-slate-700 hover:text-[#0284C7] text-xs font-medium transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-[4px] bg-white border border-slate-300 hover:border-[#0284C7] text-slate-700 hover:text-[#0284C7] text-xs font-semibold transition-all shadow-sm active:scale-[0.98] cursor-pointer min-h-[44px]"
           >
-            <DownloadSimple size={15} className="text-[#0284C7]" weight="bold" />
+            <DownloadSimple size={16} className="text-[#0284C7]" weight="bold" />
             <span>Baixar Receituário de Exames (PDF)</span>
           </a>
         </div>
